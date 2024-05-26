@@ -17,5 +17,5 @@ class CategoriesView(ViewSet):
   
   def retrieve(self, request: Request, pk: int):
     return Response(
-      f"rota de detalhes da categoria {pk}"
+      CategorySerializer(self.repo.getById(pk)).data
     )
