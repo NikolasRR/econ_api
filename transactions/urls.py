@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import transactions
+from rest_framework import routers
+from .views.transactions import TransactionsView
 
-urlpatterns = [
-    path("", transactions.TransactionsView.as_view({"get": "list", "post": "create"})),
-    path("<int:transaction>", transactions.TransactionsView.as_view({"get": "retrive"})),
-]
+router = routers.SimpleRouter()
+router.register("transaction", TransactionsView, "transaction")
+urlpatterns = router.urls
