@@ -1,5 +1,10 @@
-from models import Transaction, TransactionCategory
+from .models import Transaction
 
 class TransactionRepository:
+    transactions = []
+    
     def create(self, transaction: Transaction):
-        transaction.save()
+        self.transactions.append(transaction)
+
+    def list(self):
+        return self.transactions
