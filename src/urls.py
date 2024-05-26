@@ -21,5 +21,6 @@ from transactions.views.transactions import *
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("transactions", include("transactions.urls")),
+    path("transaction", include("transactions.urls")),
+    path("", include("categories.urls"))
 ]
